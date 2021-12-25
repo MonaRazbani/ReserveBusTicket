@@ -14,11 +14,10 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id ;
-    @ManyToOne(cascade = CascadeType.ALL )
+    @ManyToOne
     private User user;
-    private double Cost ;
     private int seatNumber ;
-    @ManyToOne(cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Trip trip ;
 
 }

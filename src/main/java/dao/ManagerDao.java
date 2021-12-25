@@ -1,4 +1,3 @@
-/*
 package dao;
 
 import models.roles.Manager;
@@ -8,23 +7,23 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 public class ManagerDao extends DataBaseAccess{
-    public void saveNewPerson(Person person) {
+    public void saveNewManager(Manager manager) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.save(person);
+        session.save(manager);
         transaction.commit();
         session.close();
     }
-    public void updatePerson(Person person) {
+    public void updateManager(Manager manager) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.saveOrUpdate(person);
+        session.saveOrUpdate(manager);
         transaction.commit();
         session.close();
     }
 
 
-    public Manager FindByNationalCode(String nationalCode){
+    public Manager findByNationalCode(String nationalCode){
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         Query<Manager> query = session.createQuery("FROM Manager manager WHERE manager.nationalCode=:nationalCode ");
@@ -34,5 +33,6 @@ public class ManagerDao extends DataBaseAccess{
         session.close();
         return result;
     }
+
+
 }
-*/

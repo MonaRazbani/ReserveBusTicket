@@ -4,7 +4,7 @@ import lombok.Data;
 import models.enums.BusType;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.*;
 
 
 @Data
@@ -14,8 +14,6 @@ import java.util.List;
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private long id ;
         private String name ;
-        @OneToMany(cascade = CascadeType.ALL , mappedBy = "bus")
-        private List<Trip> trips;
         private int passengerCapacity ;
         @Enumerated (EnumType.STRING)
         private BusType type;
