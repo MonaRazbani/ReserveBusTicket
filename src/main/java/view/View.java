@@ -56,7 +56,7 @@ public class View {
     public City chooseOriginOrDestinationCity() {
         City city = null;
         while (city == null) {
-            System.out.println("enter city Origin :\n1:TABRIZ\n2:TEHRAN\n3:MASHHAD\n4:SHIRAZ\n5:ESFAHAN;");
+            System.out.println("enter city :\n1:TABRIZ\n2:TEHRAN\n3:MASHHAD\n4:SHIRAZ\n5:ESFAHAN;");
             int cityChoice = scanner.nextInt();
             city = chooseCity(cityChoice);
         }
@@ -95,13 +95,15 @@ public class View {
     public void userMenu(User user) {
 
         int numOfPage = 0;
+        System.out.println("origin :");
         City origin = chooseOriginOrDestinationCity();
+        System.out.println("destination :");
         City destination = chooseOriginOrDestinationCity();
         List<Trip> onePageOfTrip;
         while (true) {
             onePageOfTrip = tripService.nextPageForSearchingOriginDestination(numOfPage, pageSize, origin, destination);
             System.out.println(onePageOfTrip);
-            System.out.println("enter number of your action \n 1: previous page \n2: next page \n3: filter the trips  \n4: select the Trip ");
+            System.out.println("enter number of your action \n1: previous page \n2: next page \n3: filter the trips  \n4: select the Trip ");
             int actionType = scanner.nextInt();
             switch (actionType) {
                 case 1 -> {
